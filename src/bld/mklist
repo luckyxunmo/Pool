@@ -1,0 +1,24 @@
+#need man to modify this file
+
+$(DEPEND_LIST):various preparation neolib app
+
+#$(DEPEND_LIST):various app
+
+various:
+	@echo "set the eviroment"
+	#export LD_LIBRARY_PATH=$(LIB_TARGET_PATH)
+	#export PATH="$PATH:/cygdrive/f/neogithub/neolibs.git/trunk/build/libs"
+	#./syspath.sh
+	#export
+preparation:
+	@echo "prepare something"
+	cp $(LIB_PATH)*.h $(PUB_INCLUDE)
+	
+neolib:
+	cd $(LIB_PATH) && $(MAKE)
+	cd $(LIB_TARGET_PATH) && $(MAKE) 
+			
+app:
+	cd $(APP_PATH)main/ && $(MAKE)
+	cd $(TARGET_PATH) && $(MAKE)	
+	
